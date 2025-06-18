@@ -36,6 +36,24 @@ export const getMovieById = async (id: number): Promise<Movie> => {
 };
 
 // Función para construir la URL completa de la imagen del póster
+export const searchMovies = async (query: string): Promise<Movie[]> => {
+  try {
+    const response = await axios.get<ApiResponse<Movie>>(`${TMDB_BASE_URL}/search/movie`, {
+      params: {
+        api_key: TMDB_API_KEY,
+        language: 'es-ES',
+        query: query,
+        page: 1,
+        include_adult: false,
+      },
+    });
+    return response.data.results;
+  } catch (error) {
+    console.error('Error searching movies:', error);
+    throw error;
+  }
+};
+
 export const getPosterUrl = (posterPath: string | null): string => {
   if (posterPath) {
     return `${TMDB_IMAGE_BASE_URL}${posterPath}`;

@@ -12,7 +12,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie }) => {
     <div className="movie-card">
       <img src={getPosterUrl(movie.poster_path)} alt={movie.title} /> {/* Usa getPosterUrl */}
       <h3>{movie.title}</h3>
-      <p>Puntuación: {movie.vote_average}</p> {/* Ejemplo de campo TMDB */}
+      <p>Ranking: {movie.vote_average}</p> {/* Ejemplo de campo TMDB */}
       <Link to={`/movies/${movie.id}`}>Ver Detalles</Link>
     </div>
   );
