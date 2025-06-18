@@ -1,15 +1,18 @@
-import './App.css'
-import UserList from './UserList'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import './App.css';
+import HomePage from './pages/HomePage';
 
 function App() {
-
-
   return (
-    <div className="App">
-    <h1>TESTEO FUNCIONDO :3</h1>
-    <UserList />
-  </div>
-  )
+    <Router>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          {/* Add more routes here as needed */}
+        </Routes>
+      </div>
+    </Router>
+  );
 }
 
-export default App
+export default App;
